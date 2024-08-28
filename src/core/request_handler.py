@@ -63,6 +63,7 @@ def new_request_handler(startup_events: list) -> Litestar:
                 path="/static",
             ),
         ],
+        on_app_init=[session_auth.on_app_init],
         stores={
             "sessions": REDIS_STORE.with_namespace("session"),
         },
