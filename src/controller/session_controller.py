@@ -7,5 +7,4 @@ class SessionController(Controller):
 
     @get(path=["/login"])
     async def get_login_view(self) -> Template:
-        return Template(template_name="session/login.html.jinja")
-    
+        return Template(template_name="session/login.html.jinja", context={"title": "Login"})

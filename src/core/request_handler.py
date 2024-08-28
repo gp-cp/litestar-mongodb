@@ -5,10 +5,12 @@ from litestar.config.compression import CompressionConfig
 from litestar.config.cors import CORSConfig
 from litestar.connection import ASGIConnection
 from litestar.contrib.jinja import JinjaTemplateEngine
+from litestar.exceptions import NotFoundException
 from litestar.middleware.session.server_side import (
     ServerSideSessionBackend,
     ServerSideSessionConfig,
 )
+from litestar.response import Redirect
 from litestar.security.session_auth import SessionAuth
 from litestar.static_files import StaticFilesConfig
 from litestar.stores.redis import RedisStore
@@ -30,7 +32,12 @@ async def retrieve_user_handler(
 session_auth = SessionAuth[str, ServerSideSessionBackend](
     retrieve_user_handler=retrieve_user_handler,
     session_backend_config=ServerSideSessionConfig(key="session"),
+    exclude=["/static"],
 )
+
+
+def not_found_handler(_, __) -> Redirect:
+    return Redirect(path="/not-found")
 
 
 def new_request_handler(startup_events: list) -> Litestar:
@@ -46,7 +53,7 @@ def new_request_handler(startup_events: list) -> Litestar:
             brotli_gzip_fallback=True,
         ),
         on_startup=startup_events,
-          template_config=TemplateConfig(
+        template_config=TemplateConfig(
             directory=settings.TEMPLATE_DIR,
             engine=JinjaTemplateEngine,
         ),
@@ -60,4 +67,7 @@ def new_request_handler(startup_events: list) -> Litestar:
             "sessions": REDIS_STORE.with_namespace("session"),
         },
         dependencies={"mongo_context": get_mongo_context},
+        exception_handlers={
+            NotFoundException: not_found_handler,
+        },
     )
