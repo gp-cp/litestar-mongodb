@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html data-theme="light">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Welcome</title>
+    <link rel="stylesheet" href="/static/css/bulma.min.css">
+    <link href="/static/css/fontawesome/fontawesome.css" rel="stylesheet" />
+    <link href="/static/css/fontawesome/brands.css" rel="stylesheet" />
+    <link href="/static/css/fontawesome/solid.css" rel="stylesheet" />
+    <link rel="icon" href="/static/favicon.ico" />
+</head>
+<body>
+    <div class="is-flex is-flex-direction-column" style="min-height: 100vh;">
+        {% block content %}{% endblock %}
+        <footer class="footer">
+            <div class="content has-text-centered">
+                <p>&copy; 2024 The App Company. All rights reserved.</p>
+            </div>
+        </footer>
+    </div>
+</body>
+
+</html>

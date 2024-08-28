@@ -1,0 +1,60 @@
+{% extends 'layout/base.html.jinja' %}
+{% block content %}
+<section class="hero is-large is-info">
+    <div class="hero-body">
+        <div class="container">
+            <div class="columns is-vcentered">
+                <div class="column is-half">
+                    <h1 class="title is-1">Welcome to our App</h1>
+                    <h2 class="subtitle is-4">Discover the power of simplicity and elegance.</h2>
+                    <a href="/login" class="button is-white is-large">Get Started</a>
+                </div>
+                <div class="column is-half">
+                    <figure class="image is-4by3">
+                        <img src="/static/images/welcome.svg" alt="Landing Image">
+                    </figure>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="section is-flex-grow-1">
+    <div class="container">
+        <div class="columns is-multiline">
+            <div class="column is-one-third">
+                <div class="card">
+                    <div class="card-content">
+                        <div class="content">
+                            <h3 class="title is-4">Feature 1</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec iaculis mauris.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="column is-one-third">
+                <div class="card">
+                    <div class="card-content">
+                        <div class="content">
+                            <h3 class="title is-4">Feature 2</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec iaculis mauris.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="column is-one-third">
+                <div class="card">
+                    <div class="card-content">
+                        <div class="content">
+                            <h3 class="title is-4">Feature 3</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec iaculis mauris.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

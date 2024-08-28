@@ -8,15 +8,66 @@ authors = [
 dependencies = [
     "litestar[standard]>=2.11.0",
     "motor>=3.5.1",
+    "pydantic-settings>=2.4.0",
+    "brotli>=1.1.0",
+    "redis>=5.0.8",
 ]
 requires-python = ">=3.12"
 readme = "README.md"
 license = {text = "MIT"}
 
+[tool.ruff]
+line-length = 120
+target-version = 'py311'
+fix = true
+exclude = [
+    "app/proto_gen"
+]
+
+[tool.ruff.lint]
+fixable = ["ALL"]
+select = [
+    "E",     #pycodestyle
+    "F",     # pyflakes
+    "UP",    # pyupgrade
+    "B",     # pyflakes-bugbear
+    "SIM",   # pyflakes-symplify
+    "I",     # isort
+    "D",     # pydocstyle
+    "C90",   # McCabe complexity
+    "TID",   # flake8-tidy-imports
+    "N",     # PEP8 Naming
+    "ASYNC", # flake8-async
+    "T20",   # flake8-print
+    "PYI",   # flake8-pyi
+    "RET",   # flake8-return
+]
+
+ignore = [
+    "B008",
+    "D100",
+    "D101",
+    "D102",
+    "D103",
+    "D104",
+    "D105",
+    "D106",
+    "D107",
+]
+
+[tool.ruff.lint.pydocstyle]
+convention = "pep257"
+
+
+[tool.pdm]
+distribution = true
+
+[tool.pdm.dev-dependencies]
+dev = [
+    "ruff>=0.6.2",
+]
 [build-system]
 requires = ["pdm-backend"]
 build-backend = "pdm.backend"
 
 
-[tool.pdm]
-distribution = true

@@ -1,0 +1,44 @@
+{% extends 'layout/base.html.jinja' %}
+{% block content %}
+<div class="is-flex is-justify-content-center is-align-items-center is-flex-grow-1 has-background-info">
+    <div class="card box">
+        <div class="card-image">
+            <figure class="image is-4by3">
+                <img src="/static/images/login.svg" alt="Placeholder image" />
+            </figure>
+        </div>
+        <div class="card-content">
+            <div class="content">
+                <form>
+                    <div class="field">
+                        <p class="control has-icons-left has-icons-right">
+                            <input class="input is-large" type="email" placeholder="Email">
+                            <span class="icon is-small is-left">
+                                <i class="fas fa-envelope"></i>
+                            </span>
+                            <span class="icon is-small is-right">
+                                <i class="fas fa-check"></i>
+                            </span>
+                        </p>
+                    </div>
+                    <div class="field">
+                        <p class="control has-icons-left">
+                            <input class="input is-large" type="password" placeholder="Password">
+                            <span class="icon is-small is-left">
+                                <i class="fas fa-lock"></i>
+                            </span>
+                        </p>
+                    </div>
+                    <div class="field">
+                        <p class="control">
+                            <button class="button is-link is-large is-fullwidth">
+                                Login
+                            </button>
+                        </p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
