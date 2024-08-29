@@ -24,4 +24,4 @@ ENV PATH="/project/.venv/bin:$PATH"
 COPY src /project/src
 
 WORKDIR /project
-CMD ["litestar", "--app", "src.main:app", "run", "--host", "0.0.0.0", "--port", "8000"]
+CMD ["granian", "--interface", "asgi", "src.main:app", "--host", "0.0.0.0", "--port", "8000"]
